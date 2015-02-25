@@ -1,0 +1,52 @@
+body, html {
+  background: url('https://demo.jujucharms.com/juju-ui/assets/images/non-sprites/pattern_tile.png');
+  font-family: 'Ubuntu Mono', Ubuntu;
+  min-height: 100%;
+}
+
+article {
+  margin: 5em auto;
+  text-align: center;
+  width: 100%;
+}
+
+.states {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  text-align: left;
+  width: 50%
+}
+
+.states li label {
+  font-size: 5em;
+}
+
+.details {
+  font-size: 1.2em;
+}
+
+.details ul {
+  margin: 0 0 0 1.1em;
+  padding: 0;
+}
+
+.blocked {
+  color: #d95c5c;
+}
+
+.clean {
+  color: #5bbd72;
+}
+
+a {
+  color: #dd4814;
+}
+
+a:visited {
+  color: #E36C43;
+}
+
+#footer, #footer a {
+  color: #D6D3CF;
+}

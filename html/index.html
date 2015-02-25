@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Juju CI Blocked?</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <article id="content">
+      <ul class="states"></ul>
+    </article>
+    <article id="footer">
+      <div>Made with &lt;3 by <a href="http://marcoceppi.com/" target="_blank">Marco Ceppi</a> | <a href="https://github.com/marcoceppi/juju.fail" target="_blank">Github</a> it</div>
+    </article>
+  </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      update_status();
+    });
+    update_status = function() {
+      // Grab status.json
+      $.getJSON('/status.json', function(data) {
+        for(branch in data['status']) {
+          var details = data['status'][branch]
+          var htmlout = [];
+
+          htmlout.push($('<label/>', {html: branch}));
+          var htmldetails = $('<div/>', {class: 'details'});
+          if(details.length > 0) {
+            var ul = $('<ul/>');
+            for(i in details) {
+              var item = details[i];
+              $('<li/>', {
+                html: $('<a/>').attr('href', item['url']).text('#' + item['id'] + ' ' + item['title'] + ' (' + item['status'] + ')')
+              }).appendTo(ul);
+            }
+            ul.appendTo(htmldetails);
+          }
+          htmlout.push(htmldetails);
+          $('<li/>', {
+            //html: [for (e of htmlout) e.prop('outerHTML')].join('')
+            html: htmlout.map(function (e) { return e.prop('outerHTML') }).join(''),
+            class: details.length > 0 ? 'blocked' : 'clean'
+          }).appendTo('ul.states');
+        }
+      });
+    };
+  </script>
+</html>

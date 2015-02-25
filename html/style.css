@@ -11,11 +11,15 @@ article {
 }
 
 .states {
+  background-color: white;
+  border: 1px #AEA79F solid;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px #eee;
   list-style-type: none;
   margin: auto;
-  padding: 0;
+  padding: 0 1em 1em 1em;
   text-align: left;
-  width: 50%
+  width: 50%;
 }
 
 .states li label {

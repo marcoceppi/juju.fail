@@ -58,3 +58,11 @@ a:visited {
 #footer, #footer a {
   color: #D6D3CF;
 }
+
+.row span:after {
+  content: ' | ';
+}
+
+.row span:last-of-type:after {
+  content: '';
+}

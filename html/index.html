@@ -39,7 +39,7 @@
             for(i in details) {
               var item = details[i];
               $('<li/>', {
-                html: $('<a/>').attr('href', item['url']).text('#' + item['id'] + ' ' + item['title'] + ' (' + item['status'] + ')')
+                html: $('<a/>').attr('href', item['url']).attr('target', '_blank').text('#' + item['id'] + ' ' + item['title'] + ' (' + item['status'] + ')')
               }).appendTo(ul);
             }
             ul.appendTo(htmldetails);

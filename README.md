@@ -11,6 +11,7 @@ by which bugs.
 You will need to run this in the `bin` directory
 
     bzr branch lp:juju-ci-tools citools
+    touch citools/__init__.py
 
 Run `bzr pull` in `citools`
 

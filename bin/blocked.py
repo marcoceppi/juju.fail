@@ -16,7 +16,7 @@ def format_title(s):
     return uf.replace('"', '', 1)[::-1].replace('"', '', 1)[::-1].strip()
 
 
-for b in ['1.20', '1.21', 'master']:
+for b in ['1.20', '1.21', '1.22', '1.23', 'master']:
     args.branch = b
     uhohs = check_blockers.get_lp_bugs(args)
 

@@ -12,7 +12,7 @@ def format_title(s):
     return uf.replace('"', '', 1)[::-1].replace('"', '', 1)[::-1].strip()
 
 
-lp = check_blockers.get_lp('juju.fail')
+lp = check_blockers.Launchpad.login_anonymously('juju.fail', 'production', version='devel')
 
 for b in ['1.20', '1.21', '1.22', '1.23', '1.24', 'master']:
     uhohs = check_blockers.get_lp_bugs(lp, b)

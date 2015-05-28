@@ -14,6 +14,7 @@ def format_title(s):
 
 lp = check_blockers.get_lp('juju.fail')
 
+for b in ['1.20', '1.21', '1.22', '1.23', '1.24', 'master']:
     uhohs = check_blockers.get_lp_bugs(lp, b)
 
     data[b] = []

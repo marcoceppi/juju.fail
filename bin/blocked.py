@@ -5,10 +5,6 @@ import datetime
 
 from citools import check_blockers
 
-class AllTheThings(object):
-    pass
-
-args = AllTheThings()
 data = {}
 
 def format_title(s):
@@ -16,9 +12,9 @@ def format_title(s):
     return uf.replace('"', '', 1)[::-1].replace('"', '', 1)[::-1].strip()
 
 
-for b in ['1.20', '1.21', '1.22', '1.23', 'master']:
-    args.branch = b
-    uhohs = check_blockers.get_lp_bugs(args)
+lp = check_blockers.get_lp('juju.fail')
+
+    uhohs = check_blockers.get_lp_bugs(lp, b)
 
     data[b] = []
 
@@ -27,7 +23,7 @@ for b in ['1.20', '1.21', '1.22', '1.23', 'master']:
 
     for bug, bdata in uhohs.iteritems():
         data[b].append({'id': bug, 'url': 'http://pad.lv/%s' % bug,
-                        'title': format_title(bdata['title']), 'status': bdata['status']})
+                        'title': format_title(bdata.title), 'status': bdata.status})
 
 
 print(json.dumps({'updated': str(datetime.datetime.utcnow()), 'status': data},

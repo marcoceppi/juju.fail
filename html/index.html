@@ -28,8 +28,13 @@
     update_status = function() {
       // Grab status.json
       $.getJSON('/status.json', function(data) {
-        for(branch in data['status']) {
-          var details = data['status'][branch]
+        var status = data['status'];
+        Object.keys(status)
+              .sort()
+              .reverse()
+              .forEach(function(branch, index) {
+
+          var details = status[branch]
           var htmlout = [];
 
           htmlout.push($('<label/>', {html: branch}));
@@ -50,7 +55,7 @@
             html: htmlout.map(function (e) { return e.prop('outerHTML') }).join(''),
             class: details.length > 0 ? 'blocked' : 'clean'
           }).appendTo('ul.states');
-        }
+        });
       });
     };
   </script>

@@ -40,7 +40,7 @@ article {
 }
 
 .blocked label:after {
-  content: ' 😬';
+  content: ' \01F613';
 }
 
 .clean {
@@ -48,7 +48,7 @@ article {
 }
 
 .clean label:after {
-  content: ' 😀';
+  content: ' \01F604';
 }
 
 a {
